@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up for Portfolio</title>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <!-- JINJA2 CODE FOR RENDERING FLASK MESSAGES-->
+    {% with messages = get_flashed_messages(with_categories=true) %} <!-- with messages -->
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li><strong>{{ category }}:</strong> {{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <label>First Name:</label><br>
+        <input type="text" name="fname" required><br><br>
+
+        <label>Last Name:</label><br>
+        <input type="text" name="lname" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" name="new_user" value="Sign Up">
+    </form>
+    <a href="{{ url_for('login')}}">
+        <button type="button">Login </button>
+    </a>
+</body>
+</html>
